@@ -113,8 +113,12 @@ int main(int argc, char** argv, char** envp) {
 				}
 				if (ret_code < 0) {
 					perror("error");
+					exit(ret_code);
+				} else {
+					exit(0);
 				}
 			}
+			exit(0);
 		} else if (pid > 0) {
 			while (wait(&status) != pid);
 			
