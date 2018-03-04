@@ -116,6 +116,12 @@ int main(int argc, char** argv, char** envp) {
 			}
 		} else if (pid > 0) {
 			while (wait(&status) != pid);
+
+			size_t i;
+			for (i = 0; i < argc; ++i) {
+				free(argv[i]);
+			}
+			free(argv);
 		} else {
 			perror("fork error");
 		}
