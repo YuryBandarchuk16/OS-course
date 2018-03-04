@@ -131,6 +131,7 @@ int main(int argc, char** argv, char** envp) {
 			free(argv);
 		} else {
 			perror("fork error");
+			exit(1);
 		}
 	}
 
