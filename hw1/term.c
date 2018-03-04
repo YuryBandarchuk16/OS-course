@@ -77,6 +77,7 @@ int main(int argc, char** argv, char** envp) {
 		
 		while ((rd = scanf("%c", &nxt_c)) > 0) {
 			if (nxt_c == '\n') {
+				buf[buf_sz] = '\0';
 				break;
 			} else {
 				buf[buf_sz++] = nxt_c;
@@ -116,6 +117,8 @@ int main(int argc, char** argv, char** envp) {
 			}
 		} else if (pid > 0) {
 			while (wait(&status) != pid);
+			
+			printf("[%s] finished with status: %d\n", buf, status);
 
 			size_t i;
 			for (i = 0; i < argc; ++i) {
