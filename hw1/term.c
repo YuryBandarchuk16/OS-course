@@ -3,6 +3,14 @@
 #include <string.h>
 #include <unistd.h>
 
+#define KNRM  "\x1B[0m"
+#define KRED  "\x1B[31m"
+#define KGRN  "\x1B[32m"
+#define KYEL  "\x1B[33m"
+#define KBLU  "\x1B[34m"
+#define KMAG  "\x1B[35m"
+#define KCYN  "\x1B[36m"
+
 #define MAX_ARG_LENGTH 100
 #define MAX_TERM_STMT_LENGTH 1000
 
@@ -32,7 +40,6 @@ size_t get_argc(char * s, size_t len) {
 	return ret;
 }
 
-char lst_exec = 0;
 
 char** get_argv(const char * s, size_t len, size_t argc) {
 	char** ret = malloc(sizeof(char*) * (argc + 1));
@@ -42,19 +49,23 @@ char** get_argv(const char * s, size_t len, size_t argc) {
 		ret[i] = malloc(sizeof(char) * (MAX_ARG_LENGTH + 1));
 	}
 
-	lst_exec = 0;
-
 	size_t s_i = 0;
 	for (i = 0; i < argc; ++i) {
 		size_t a_i = 0;
 		while (s_i < len && s[s_i] == ' ') { 
 			++s_i; 
 		}
-		if (i == 0 && s_i + 1 < len && s[s_i] == '.' && s[s_i + 1] == '/') {
-			s_i += 2;
-			lst_exec = 1;
+
+		char term_char = ' ';
+		if (s[s_i] == '\"') {
+			ret[i][a_i++] = s[s_i++];
+			term_char = '\"';
 		}
-		while (s_i < len && s[s_i] != ' ') {
+
+		while (s_i < len && s[s_i] != term_char) {
+			ret[i][a_i++] = s[s_i++];
+		}
+		if (term_char == '\"') {
 			ret[i][a_i++] = s[s_i++];
 		}
 		ret[i][a_i] = '\0';
@@ -101,6 +112,12 @@ int main(int argc, char** argv, char** envp) {
 			}
 		}
 
+		size_t i = 0;
+		for (i = 0; i < argc; ++i) {
+			puts(argv[i]);
+		}
+		puts("");
+
 		pid_t pid;
 		int status;
 		
@@ -108,9 +125,7 @@ int main(int argc, char** argv, char** envp) {
 		if (pid == 0) {
 			int ret_code;
 			if ((ret_code = execvp(argv[0], argv)) < 0) {
-				if (lst_exec == 1) {
-					ret_code = execve(argv[0], argv + 1, envp);
-				}
+				ret_code = execve(argv[0], argv + 1, envp);
 				if (ret_code < 0) {
 					perror("error");
 					exit(ret_code);
