@@ -18,6 +18,10 @@ void init() {
 	printf("itmo_term>");
 }
 
+void set_default_color() {
+	printf("%s", KNRM);
+}
+
 size_t get_argc(char * s, size_t len) {
 	size_t ret = 0;
 
@@ -113,16 +117,10 @@ int main(int argc, char** argv, char** envp) {
 				continue;
 			}
 			if (strcmp(argv[0], "exit") == 0) {
-				printf("OK, Bye...\n");
+				printf("%sOK, Bye...\n%s", KBLU, KNRM);
 				exit(0);
 			}
 		}
-
-		size_t i = 0;
-		for (i = 0; i < argc; ++i) {
-			puts(argv[i]);
-		}
-		printf("%d\n", argc);
 
 		pid_t pid;
 		int status;
@@ -143,7 +141,7 @@ int main(int argc, char** argv, char** envp) {
 		} else if (pid > 0) {
 			while (wait(&status) != pid);
 			
-			printf("[%s] finished with status: %d\n", buf, status);
+			printf("[%s%s%s] %sfinished with status:%s %s%d\n%s", KMAG, buf, KNRM, KBLU, KNRM, status == 0 ? KGRN : KRED, status, KNRM);
 
 			size_t i;
 			for (i = 0; i < argc; ++i) {
