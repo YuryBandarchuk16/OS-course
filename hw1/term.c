@@ -27,14 +27,16 @@ size_t get_argc(char * s, size_t len) {
 			s[i] = ' ';
 		}
 	}
+
+	char skip_spaces = 0;
+
 	for (i = 0; i < len; ++i) {
-		if (s[i] != ' ' && (i + 1 == len || s[i + 1] == ' ')) {
+		if (s[i] == '\"') {
+			skip_spaces ^= 1;
+		}
+		if (skip_spaces == 0 && s[i] != ' ' && (i + 1 == len || s[i + 1] == ' ')) {
 			++ret;
 		}
-	}
-
-	if (len >= 2 && s[len - 1] == '&' && s[len - 2] == ' ') {
-		--ret;
 	}
 
 	return ret;
