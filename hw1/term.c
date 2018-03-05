@@ -98,6 +98,10 @@ int main(int argc, char** argv, char** envp) {
 			perror("scanf error");
 		}
 		
+		if (buf_sz == 0) {
+			continue;
+		}
+
 		size_t argc = get_argc(buf, buf_sz);
 		char **argv = get_argv(buf, buf_sz, argc);
 		
@@ -116,7 +120,7 @@ int main(int argc, char** argv, char** envp) {
 		for (i = 0; i < argc; ++i) {
 			puts(argv[i]);
 		}
-		puts("");
+		printf("%d\n", argc);
 
 		pid_t pid;
 		int status;
