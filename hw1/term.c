@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <time.h>
 
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
@@ -113,7 +114,7 @@ int main(int argc, char** argv, char** envp) {
 		
 		if (argc == 1) {
 			if (strcmp(argv[0], "itmo") == 0) {	
-				printf("ITMO Ebet!\n");
+				printf("ITMO!!!!!\n");
 				continue;
 			}
 			if (strcmp(argv[0], "exit") == 0) {
@@ -124,14 +125,14 @@ int main(int argc, char** argv, char** envp) {
 
 		pid_t pid;
 		int status;
-		
+
 		pid = fork();
 		if (pid == 0) {
 			int ret_code;
-			if ((ret_code = execvp(argv[0], argv)) < 0) {
-				ret_code = execve(argv[0], argv + 1, envp);
+			puts(argv[0]);
+			if ((ret_code = execve(argv[0], argv, envp)) < 0) {
 				if (ret_code < 0) {
-					perror("error");
+					perror("execve error");
 					exit(ret_code);
 				} else {
 					exit(0);
@@ -139,7 +140,17 @@ int main(int argc, char** argv, char** envp) {
 			}
 			exit(0);
 		} else if (pid > 0) {
-			while (wait(&status) != pid);
+			pid_t w_res;
+			while (1) {
+				w_res = wait(&status);
+				if (w_res == pid || w_res == -1) {
+					break;
+				}
+			}
+
+			if (w_res == -1) {
+				perror("wait error");
+			}
 			
 			printf("[%s%s%s] %sfinished with status:%s %s%d\n%s", KMAG, buf, KNRM, KBLU, KNRM, status == 0 ? KGRN : KRED, status, KNRM);
 
