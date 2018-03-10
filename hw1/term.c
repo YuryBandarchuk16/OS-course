@@ -65,6 +65,7 @@ char** get_argv(const char * s, size_t len, size_t argc) {
 		char term_char = ' ';
 		if (s[s_i] == '\"') {
 			ret[i][a_i++] = s[s_i++];
+			a_i--;
 			term_char = '\"';
 		}
 
@@ -73,6 +74,7 @@ char** get_argv(const char * s, size_t len, size_t argc) {
 		}
 		if (term_char == '\"') {
 			ret[i][a_i++] = s[s_i++];
+			a_i--;
 		}
 		ret[i][a_i] = '\0';
 	}
