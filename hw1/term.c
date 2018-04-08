@@ -102,6 +102,10 @@ int main(int argc, char** argv, char** envp) {
 			}
 		}
 		if (rd < 0) {
+			if (rd == EOF) {
+				puts("");
+				break;
+			}
 			perror("scanf error");
 		}
 		
