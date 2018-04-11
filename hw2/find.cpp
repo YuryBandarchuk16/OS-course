@@ -227,9 +227,8 @@ int main(int argc, char** argv) {
 			if (match_all(&info)) {
 				if (final_name_check != NULL && !final_name_check->is_valid(files[index])) {
 					continue;
-				} else {
-					validated_files.push_back(files[index]);
 				}
+				validated_files.push_back(files[index]);
 			}
 		}
 	}
