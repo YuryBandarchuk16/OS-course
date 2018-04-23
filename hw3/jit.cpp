@@ -5,13 +5,9 @@
 
 using namespace std;
 
-const size_t code_size = 11;
+const size_t code_size = 16;
 unsigned char code[] = {
-        0x55,
-        0x48, 0x89, 0xe5,
-        0xb8, 0x00, 0x00, 0x00, 0x00,
-        0x5d,
-        0xc3
+        0x55, 0x48, 0x89, 0xe5, 0xc7, 0x45, 0xfc, 0x00, 0x00, 0x00, 0x00, 0x8b, 0x45, 0xfc, 0x5d, 0xc3
 };
 
 using ret_t = int(*)();
@@ -60,10 +56,10 @@ struct memory_helper {
 };
 
 void patch_code(int value) {
-    code[5] = (value & 0xFF) >> 0;
-    code[6] = (value & 0xFF00) >> 8;
-    code[7] = (value & 0xFF0000) >> 16;
-    code[8] = (value & 0xFF000000) >> 24;
+    code[7] = (value & 0xFF) >> 0;
+    code[8] = (value & 0xFF00) >> 8;
+    code[9] = (value & 0xFF0000) >> 16;
+    code[10] = (value & 0xFF000000) >> 24;
 }
 
 void just_do() {
@@ -81,7 +77,7 @@ void just_do() {
   memory_helper::unmap(ptr, needed_code_size);
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     while (true) {
       int x;
       scanf("%d", &x);
