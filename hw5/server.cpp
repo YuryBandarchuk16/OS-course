@@ -49,18 +49,23 @@ public:
         }
 
         char message[MAX_BUFF_SIZE];
+        bzero(message, MAX_BUFF_SIZE);
 
         printf("Server is running...\n");
 
-        comm_fd = accept(listen_fd, reinterpret_cast<struct sockaddr*>(NULL), NULL);
-        if (comm_fd < 0) {
-            perror("accept error:");
-        }
-
         while (true) {
-            bzero(message, MAX_BUFF_SIZE);
-            read(comm_fd, message, MAX_BUFF_SIZE);
-            write(comm_fd, message, strlen(message));
+            comm_fd = accept(listen_fd, reinterpret_cast<struct sockaddr*>(NULL), NULL);
+            if (comm_fd < 0) {
+                perror("accept error:");
+                continue;
+            }
+
+            while (read(comm_fd, message, MAX_BUFF_SIZE) > 0) {
+                write(comm_fd, message, strlen(message));
+                bzero(message, MAX_BUFF_SIZE);
+            }
+
+            close(comm_fd);
         }
     }
 
