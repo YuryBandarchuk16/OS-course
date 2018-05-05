@@ -17,7 +17,8 @@ public:
             ip_address(ip_address), port(port) {
         socket_fd = socket(AF_INET, SOCK_STREAM, 0);
         if (socket_fd < 0) {
-            perror("socket error:");
+            perror("socket error");
+            exit(0);
         }
 
         if (port < 0 || port >= 65536) {
@@ -32,7 +33,8 @@ public:
         inet_pton(AF_INET, ip_address, &client_address.sin_addr);
 
         if (connect(socket_fd, reinterpret_cast<struct sockaddr*>(&client_address), sizeof(client_address)) < 0) {
-            perror("connect error:");
+            perror("connect error");
+            exit(0);
         }
     }
 

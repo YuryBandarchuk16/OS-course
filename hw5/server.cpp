@@ -17,7 +17,7 @@ public:
             ip_address(ip_address), port(port), max_conn(max_connections_num), _started(false) {
         listen_fd = socket(AF_INET, SOCK_STREAM, 0);
         if (listen_fd < 0) {
-            perror("socket error:");
+            perror("socket error");
             exit(0);
         }
 
@@ -32,11 +32,13 @@ public:
         inet_aton(ip_address, &server_address.sin_addr);
 
         if (bind(listen_fd, reinterpret_cast<struct sockaddr*>(&server_address), sizeof(server_address)) < 0) {
-            perror("bind error:");
+            perror("bind error");
+            exit(0);
         }
 
         if (listen(listen_fd, max_conn) < 0) {
-            perror("listen error:");
+            perror("listen error");
+            exit(0);
         }
 
         _started = true;
@@ -56,7 +58,7 @@ public:
         while (true) {
             comm_fd = accept(listen_fd, reinterpret_cast<struct sockaddr*>(NULL), NULL);
             if (comm_fd < 0) {
-                perror("accept error:");
+                perror("accept error");
                 continue;
             }
 
