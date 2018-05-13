@@ -1,4 +1,0 @@
-/Users/YuryBandarchuk/Documents/OperationSystems/hw5/AutoUploader/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/YuryBandarchuk/Documents/OperationSystems/hw5/AutoUploader/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/YuryBandarchuk/Documents/OperationSystems/hw5/AutoUploader/cmake-build-debug/CMakeFiles/Server.dir
-/Users/YuryBandarchuk/Documents/OperationSystems/hw5/AutoUploader/cmake-build-debug/CMakeFiles/AutoUploader.dir
