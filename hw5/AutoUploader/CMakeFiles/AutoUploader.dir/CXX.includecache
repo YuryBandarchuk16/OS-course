@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/YuryBandarchuk/Documents/OperationSystems/hw5/AutoUploader/Executor.h
+iostream
+-
+cstring
+-
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+unistd.h
+-
+dirent.h
+-
+libgen.h
+-
+limits.h
+-
+sys/stat.h
+-
+sys/types.h
+-
+vector
+-
+
+/Users/YuryBandarchuk/Documents/OperationSystems/hw5/AutoUploader/client.cpp
+Executor.h
+/Users/YuryBandarchuk/Documents/OperationSystems/hw5/AutoUploader/Executor.h
+sys/socket.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+thread
+-
+
