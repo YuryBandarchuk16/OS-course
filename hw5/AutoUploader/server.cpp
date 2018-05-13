@@ -77,7 +77,7 @@ public:
                         break;
                     }
                     bytes_cnt -= bytes_read;
-                    fputs(message, f);
+                    fwrite(message, sizeof(char), static_cast<size_t>(bytes_read), f);
                     bzero(message, MAX_BUFF_SIZE);
                 }
                 fclose(f);
