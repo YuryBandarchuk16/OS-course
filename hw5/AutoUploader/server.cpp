@@ -78,6 +78,7 @@ public:
                     }
                     bytes_cnt -= bytes_read;
                     fputs(message, f);
+                    bzero(message, MAX_BUFF_SIZE);
                 }
                 fclose(f);
 
