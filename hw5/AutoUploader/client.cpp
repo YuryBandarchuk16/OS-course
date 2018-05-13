@@ -10,7 +10,7 @@ public:
     static size_t const MAX_BUFF_SIZE = 1024;
 
     echo_serer_client(const char* ip_address, int port, const char* project_root_path):
-            ip_address(ip_address), port(port) {
+            ip_address(ip_address), port(port), project_root_path(project_root_path) {
         socket_fd = socket(AF_INET, SOCK_STREAM, 0);
         if (socket_fd < 0) {
             perror("socket error");
@@ -37,7 +37,7 @@ public:
     }
 
     char* read_file(const char* path) {
-        FILE* file = fopen(path, "r");
+        FILE* file = fopen(path, "rb");
 
         fseek(file, 0, SEEK_END);
         size_t size = static_cast<size_t>(ftell(file));
@@ -64,18 +64,26 @@ public:
             for (auto file_path : diff) {
                 printf("%s\n", file_path.c_str());
             }
+            printf("---------------------------\n");
 
             for (auto file_path : diff) {
                 const char* path = file_path.c_str();
                 char* content = read_file(path);
-                const char* bytes_cnt= std::to_string(strlen(content)).c_str();
 
-                char* full_path = new char[strlen(path) + strlen(project_root_path) + 10];
+                const size_t full_path_len = strlen(path) + strlen(project_root_path) + 10;
+                char* full_path = new char[full_path_len];
+                bzero(full_path, full_path_len);
                 strcpy(full_path, project_root_path);
                 strcat(full_path, path);
 
+                char* bytes_cnt = new char[11];
+                strcpy(bytes_cnt, std::to_string(strlen(content)).c_str());
+                char* path_size = new char[11];
+                strcpy(path_size, std::to_string(strlen(full_path)).c_str());
+
                 printf("Sending %s...\n", path);
-                write(socket_fd, bytes_cnt, strlen(bytes_cnt));
+                write(socket_fd, bytes_cnt, 11);
+                write(socket_fd, path_size, 11);
                 write(socket_fd, full_path, strlen(full_path));
                 write(socket_fd, content, strlen(content));
 
@@ -84,10 +92,14 @@ public:
 
                 delete[] content;
                 delete[] full_path;
+                delete[] bytes_cnt;
+                delete[] path_size;
             }
 
             printf("All the diff has been transferred\n");
             printf("Sleep for 2 seconds...\n");
+            printf("---------------------------\n");
+            printf("\n\n\n\n\n");
             std::this_thread::sleep_for(std::chrono::seconds(2));
         }
     }

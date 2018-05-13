@@ -14,6 +14,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d9629a47-7a1b-4d09-b7ee-ff966a39a316" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <ignored path="$PROJECT_DIR$/CMakeFiles/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,21 +25,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+              <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="client.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="90" column="63" lean-forward="false" selection-start-line="90" selection-start-column="63" selection-end-line="90" selection-end-column="63" />
+            <state relative-caret-position="185">
+              <caret line="93" column="35" lean-forward="true" selection-start-line="93" selection-start-column="35" selection-end-line="93" selection-end-column="35" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -49,9 +50,11 @@
       <file leaf-file-name="server.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-580">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="176">
+              <caret line="79" column="38" lean-forward="false" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -59,8 +62,8 @@
       <file leaf-file-name="Executor.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Executor.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
+            <state relative-caret-position="211">
+              <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -79,10 +82,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/main.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/server.cpp" />
         <option value="$PROJECT_DIR$/Executor.h" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/client.cpp" />
+        <option value="$PROJECT_DIR$/server.cpp" />
       </list>
     </option>
   </component>
@@ -355,25 +358,26 @@
       <option name="presentableId" value="Default" />
       <updated>1526124949287</updated>
       <workItem from="1526124951451" duration="3035000" />
-      <workItem from="1526230712370" duration="4237000" />
+      <workItem from="1526230712370" duration="6619000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7272000" />
+    <option name="totallyTimeSpent" value="9654000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="712" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2584814" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3419355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -447,10 +451,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Executor.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
+        <state relative-caret-position="211">
+          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
@@ -459,27 +471,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-580">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="176">
+          <caret line="79" column="38" lean-forward="false" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="90" column="63" lean-forward="false" selection-start-line="90" selection-start-column="63" selection-end-line="90" selection-end-column="63" />
+        <state relative-caret-position="185">
+          <caret line="93" column="35" lean-forward="true" selection-start-line="93" selection-start-column="35" selection-end-line="93" selection-end-column="35" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -62,12 +62,15 @@ public:
                 continue;
             }
 
-            while (read(comm_fd, message, MAX_BUFF_SIZE) > 0) {
+            while (read(comm_fd, message, 11) > 0) {
                 int bytes_cnt = atoi(message);
                 bzero(message, MAX_BUFF_SIZE);
+                read(comm_fd, message, 11);
+                int full_path_size = atoi(message);
                 char full_path[MAX_BUFF_SIZE];
-                read(comm_fd, full_path, MAX_BUFF_SIZE);
-                FILE* f = fopen(full_path, "w");
+                bzero(full_path, MAX_BUFF_SIZE);
+                read(comm_fd, full_path, static_cast<size_t>(full_path_size));
+                FILE* f = fopen(full_path, "wb");
                 while (bytes_cnt > 0) {
                     ssize_t bytes_read = read(comm_fd, message, MAX_BUFF_SIZE);
                     if (bytes_read <= 0) {
@@ -83,6 +86,10 @@ public:
                 } else {
                     strcat(full_path, " error occurred while trying to receive");
                 }
+
+                write(comm_fd, full_path, strlen(full_path));
+                bzero(message, MAX_BUFF_SIZE);
+                bzero(full_path, MAX_BUFF_SIZE);
             }
 
             close(comm_fd);
