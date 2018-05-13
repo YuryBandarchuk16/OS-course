@@ -70,9 +70,9 @@ public:
                 char full_path[MAX_BUFF_SIZE];
                 bzero(full_path, MAX_BUFF_SIZE);
                 read(comm_fd, full_path, static_cast<size_t>(full_path_size));
-                FILE* f = fopen(full_path, "wb");
+                FILE* f = fopen(full_path, "w");
                 while (bytes_cnt > 0) {
-                    ssize_t bytes_read = read(comm_fd, message, MAX_BUFF_SIZE);
+                    ssize_t bytes_read = read(comm_fd, message, MAX_BUFF_SIZE - 2);
                     if (bytes_read <= 0) {
                         break;
                     }

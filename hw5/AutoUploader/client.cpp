@@ -37,12 +37,13 @@ public:
     }
 
     char* read_file(const char* path) {
-        FILE* file = fopen(path, "rb");
+        FILE* file = fopen(path, "r");
 
         fseek(file, 0, SEEK_END);
         size_t size = static_cast<size_t>(ftell(file));
 
-        char* content = new char[size];
+        char* content = new char[size + 10];
+        bzero(content, size + 10);
 
         rewind(file);
         fread(content, sizeof(char), size, file);
