@@ -55,7 +55,7 @@ public:
 
         bool last_is_read = false;
         while (true) {
-            printf("Would you like to Read or Write to the char? (R/W):");
+            printf("Would you like to Read or Write to the chat? (R/W):");
             char opt;
             if (last_is_read == true) {
                 scanf("\n");
