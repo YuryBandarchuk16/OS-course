@@ -120,7 +120,7 @@ void test_copy16() {
 	srand(94718203);
 	char *s1 = new char[12345678];
 	char *s2 = new char[12345678];
-	for (int i = 0; i < 1234567; ++i) {
+	for (int i = 0; i < 12345678; ++i) {
 		s1[i] = (char)(rand() % 10 + 48);
 		s2[i] = (char)(rand() % 10 + 48);
 	}
@@ -146,7 +146,7 @@ void test_copy16_fast() {
 	srand(382009357);
 	char *s1 = new char[12345678];
 	char *s2 = new char[12345678];
-	for (int i = 0; i < 1234567; ++i) {
+	for (int i = 0; i < 12345678; ++i) {
 		s1[i] = (char)(rand() % 10 + 48);
 		s2[i] = (char)(rand() % 10 + 48);
 	}
@@ -173,6 +173,7 @@ void run_tests() {
 	test_copy8();
 	test_copy16();
 	test_copy16_fast();
+	test_copy16();
 }
  
 int main() {
