@@ -127,7 +127,7 @@ void test_copy16() {
 	double start_time = clock();
 	copier::copy16(s1, s2, 12345678);
 	double end_time = clock();
-	double total_time = (end_time - total_time) / CLOCKS_PER_SEC;
+	double total_time = (end_time - start_time) / CLOCKS_PER_SEC;
 	for (int i = 0; i < 12345678; ++i) {
 		if (s1[i] != s2[i]) {
 			puts("test_copy16: FAIL");
@@ -153,7 +153,7 @@ void test_copy16_fast() {
 	double start_time = clock();
 	copier::copy16_fast(s1, s2, 12345678);
 	double end_time = clock();
-	double total_time = (end_time - total_time) / CLOCKS_PER_SEC;
+	double total_time = (end_time - start_time) / CLOCKS_PER_SEC;
 	for (int i = 0; i < 12345678; ++i) {
 		if (s1[i] != s2[i]) {
 			puts("test_copy16_fast: FAIL");
